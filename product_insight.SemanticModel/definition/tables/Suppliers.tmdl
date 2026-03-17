@@ -1,0 +1,97 @@
+table Suppliers
+	lineageTag: eece3f55-b7dd-4f9d-a8bc-01a0a243e2d8
+	sourceLineageTag: [SupplyChain].[Suppliers]
+
+	column SupplierID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ee447a64-0c6d-4b26-8b66-de5e123c21ce
+		sourceLineageTag: SupplierID
+		summarizeBy: count
+		sourceColumn: SupplierID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupplierName
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 0777d4e9-8851-4c69-979e-1c5675964251
+		sourceLineageTag: SupplierName
+		summarizeBy: none
+		sourceColumn: SupplierName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactName
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: ed485ec0-f68d-4006-b93e-75334d9918ef
+		sourceLineageTag: ContactName
+		summarizeBy: none
+		sourceColumn: ContactName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: a319d11b-bcc5-4654-b148-88ad3fd5eb52
+		sourceLineageTag: Phone
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 9e5d9cb8-7b89-45dd-86cd-31938bdca07c
+		sourceLineageTag: Email
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupplierLocationID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 77e043d8-f0f4-47e3-86e8-83009c7a78df
+		sourceLineageTag: SupplierLocationID
+		summarizeBy: count
+		sourceColumn: SupplierLocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsActive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 937ed73c-90d7-4739-8e17-c9a13b683b29
+		sourceLineageTag: IsActive
+		summarizeBy: none
+		sourceColumn: IsActive
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2d0571a2-9910-42d7-b1db-8955c1653113
+		sourceLineageTag: CreatedDate
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Suppliers = entity
+		mode: directLake
+		source
+			entityName: Suppliers
+			schemaName: SupplyChain
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
